@@ -1,4 +1,4 @@
-# online_shop
+# albert_shop
 
 ## Project setup
 ```
@@ -22,9 +22,3 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-"# al" 
-"# al" 
-"# al" 
-"# Testonlineshop" 
-"# Testonlineshop" 
-"# Testonlineshop" 

@@ -1,5 +1,5 @@
 {
-  "name": "online_shop",
+  "name": "albert_shop",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,8 +11,9 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "node-sass": "^5.0.0",
+    "sass-loader": "^11.0.1",
     "vue": "^2.6.11",
-    "vuex": "^4.0.0"
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -21,10 +22,6 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "less": "^4.1.1",
-    "less-loader": "^8.1.1",
-    "sass": "^1.32.11",
-    "sass-loader": "^11.0.1",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -40,7 +37,7 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "no-console": "off"
+      "no-console":"off"
     }
   },
   "browserslist": [
