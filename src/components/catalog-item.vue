@@ -4,8 +4,8 @@
     <img class="image" :src="product_data.image" alt="image"> 
       <p class="catalogItem__title">Title  {{product_data.title}}</p>
       <p class="catalogItem__price"> Price$ {{product_data.price}} </p>
-        <p class="catalogItem__description"> Description: {{product_data.description}}</p>
-    <p class="catalogItem__category"> Category: {{product_data.category}}</p>
+        <!-- <p class="catalogItem__description"> Description: {{product_data.description}}</p>
+    <p class="catalogItem__category"> Category: {{product_data.category}}</p> -->
     
     <!-- <div class="Buy"> <button class="catalogItem__btn btn"  > add</button>
      </div> -->
@@ -43,6 +43,9 @@
     },
     watch: {
    
+    },
+    mounted(){
+       this.$set(this.product_data, 'quantity',1)
     }
   }
 </script>
@@ -61,10 +64,12 @@
       font-size: 15px;
       padding: 8px ;
       letter-spacing: 0.75px;
+       max-width: 250px;
+  max-height: 250px;
 }
 .image{
-  max-width: 250px;
-  max-height: 250px;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 .catalogItem:hover {

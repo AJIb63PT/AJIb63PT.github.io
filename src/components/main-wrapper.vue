@@ -1,21 +1,19 @@
 <template>
   <div class="main-wrapper">{{title}}
-   <catalog/>
-   <cart v-if="CART.length"
-   :cart_data="CART"/>
+    <keep-alive>
+    <router-view> </router-view>
+    </keep-alive>
+  
   </div>
 </template>
 <script>
-import catalog from './catalog'
-import cart from './cart'
-import {mapGetters} from 'vuex'
+
   
 
   export default {
     name: 'main-wrapper',
-    components: {catalog,
-    cart
-   
+    components: {
+     
     },
     props: {},
     data() {
@@ -23,9 +21,7 @@ import {mapGetters} from 'vuex'
         title: 'ALBERT FAKE SHOP'
       }
     },
-    computed: {
-      ...mapGetters(['CART'])
-    },
+    computed: { },
     methods: {},
     watch: {}
   }

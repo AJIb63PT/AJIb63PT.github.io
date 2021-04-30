@@ -2,13 +2,19 @@
     <div class="CartItem">
 <div class="cart_item_info">
     <img class="cart_image" :src="cart_item_data.image" alt="">
-    <p>{{cart_item_data.title}}</p>
-    <p>{{cart_item_data.price}}</p>
+    <p>Title^ {{cart_item_data.title}}</p>
+    <p>Price$ {{cart_item_data.price}}</p>
 </div>
 <div>
     <div class="cart_item_quantity">
+        <p>кол-во</p>
+        <button class="quantity__tools">
+        <button class="quantity__btn" v-on:click="decrementItem">-</button>
+        {{cart_item_data.quantity}} 
+        <button class="quantity__btn" v-on:click="incrementItem">+</button>
+      </button>
 
-           {{cart_item_data.quantity}} 
+
            </div>
     <button v-on:click="DeleteFromCart">    Delete</button>
 </div>
@@ -32,34 +38,36 @@ export default {
     },
     computed:{},
     mounted(){
-        this.$set(this.cart_item_data, 'quantity',1)
+        // this.$set(this.cart_item_data, 'quantity',1)
     },
     methods:{
+       
+        
         DeleteFromCart(){
             this.$emit('DeleteFromCart')
-        }
+        },
+      incrementItem() {
+        this.$emit('increment')
+      },
+      decrementItem() {
+        this.$emit('decrement')}
     }
 }
 </script>
 <style >
 
 .CartItem{
-      flex-basis: 25%;
-      box-shadow: 0 08px 0;
-  
-      margin-bottom: 8px;
-        position: relative;
-      border: 2px solid #202328;
-      color: #202328;
-      text-decoration: none;
-      background-color: transparent;
-      font-size: 15px;
-      padding: 8px ;
-      letter-spacing: 0.75px;
+       display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 8px 0 #e0e0e0;
+    padding:8px;
+    margin-bottom:12px;
 }
 .cart_image{
-  max-width: 250px;
-  max-height: 250px;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 </style>
