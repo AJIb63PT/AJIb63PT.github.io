@@ -9,7 +9,9 @@ const store = new Vuex.Store({
         state: {
         
           products: [],
-          cart:[]
+          cart:[],
+          isMobile:false,
+          isDesktop:true
         },
         mutations:{
             SET_PRODUCTS_TO_STATE:(state,products)=>{
@@ -45,7 +47,8 @@ const store = new Vuex.Store({
               if (state.cart[index].quantity > 1) {
                 state.cart[index].quantity--
               }
-            }
+            },
+            
         },
         actions:{
             GET_PRODUCTS_FROM_API({commit}){
@@ -73,8 +76,8 @@ const store = new Vuex.Store({
             },
             DECREMENT_CART_ITEM({commit},index){
                 commit('DECREMENT',index)
-            }
-
+            },
+          
     
         },
         getters:{
@@ -83,7 +86,8 @@ const store = new Vuex.Store({
             },
             CART(state){
                 return state.cart;
-            }
+            },
+            
         },
       });
       

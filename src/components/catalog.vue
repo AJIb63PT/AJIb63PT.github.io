@@ -3,10 +3,11 @@
     <router-link :to="{name:'cart',params:{cart_data:CART}}" >
     <div class="from_calatog_to_cart"> корзина:{{CART.length}}</div>
     </router-link>
-      <Select  
+      <v-select  
       :selected="selected"
       :options="categories"
-      @select="SortByCategories(options)" /> 
+      @select="SortByCategories" 
+      :isExpanded="IS_DESKTOP"/> 
 
       
       <catalogItem
@@ -25,14 +26,14 @@
 <script>
 import catalogItem from './catalog-item.vue'
 import {mapActions,mapGetters} from 'vuex'
-import Select from './Select.vue'
+import vSelect from './v-select.vue'
   
 
   export default {
     name: 'catalog',
     components: {
       catalogItem,
-        Select
+        vSelect
    
     },
     props: {},
@@ -48,10 +49,10 @@ import Select from './Select.vue'
         },
       
         {
-          name:'mens clothing',Value:'m'
+          name:"men's clothing",Value:'m'
         },
         {
-          name:'womens clothing',Value:'w'
+          name:"women's clothing",Value:'w'
         },],
         selected:'All',
         sortedProducts:[]
@@ -61,6 +62,8 @@ import Select from './Select.vue'
     computed: {...mapGetters([
       'PRODUCTS',
       'CART',
+       'IS_MOBILE',
+      'IS_DESKTOP'
       ]),
       Filter(){
         if(this.sortedProducts.length){
@@ -77,12 +80,11 @@ import Select from './Select.vue'
      this.ADD_TO_CART(data)
     },
     SortByCategories(category){
+      this.sortedProducts=[]
       let ct=this;
-      this.sortedProducts=[...this.PRODUCTS]
-      
-      ct.PRODUCTS.map(function(item){
-        if(item.category==category.name){
-          this.sortedProducts.push(item)
+      this.PRODUCTS.map(function(item){
+        if(item.category===category.name){
+          ct.sortedProducts.push(item);
         }
       })
 

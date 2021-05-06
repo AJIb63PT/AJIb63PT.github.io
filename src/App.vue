@@ -14,7 +14,8 @@ import MainWrapper from './components/main-wrapper'
 export default {
   name: 'App',
   components: {
-    MainWrapper
+    MainWrapper,
+    
     
   }
 }

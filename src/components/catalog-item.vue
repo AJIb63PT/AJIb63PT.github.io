@@ -2,7 +2,7 @@
   <div class="catalogItem" v-on:click="addToCart">
     
     <img class="image" :src="product_data.image" alt="image"> 
-      <p class="catalogItem__title">Title  {{product_data.title}}</p>
+      <p class="catalogItem__title"> {{product_data.title}}</p>
       <p class="catalogItem__price"> Price$ {{product_data.price}} </p>
         <!-- <p class="catalogItem__description"> Description: {{product_data.description}}</p>
     <p class="catalogItem__category"> Category: {{product_data.category}}</p> -->
@@ -65,7 +65,7 @@
       padding: 8px ;
       letter-spacing: 0.75px;
        max-width: 250px;
-  max-height: 250px;
+  max-height: 350px;
 }
 .image{
   max-width: 150px;

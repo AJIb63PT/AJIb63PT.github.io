@@ -19,7 +19,7 @@
        
         <div class="cart_total">
             <p class="total_name">    total:$  </p>
-            <p> {{cartTotal}}</p>
+            <p> {{cartTotal.toFixed(2)}}</p>
           
         </div>
         
@@ -32,7 +32,8 @@ import {mapActions} from 'vuex'
 export default {
     name:'cart',
     components:{
-        CartItem
+        CartItem,
+        // Fixedtoral
     },
     props:{
         cart_data:{
@@ -65,10 +66,11 @@ export default {
       }
     },
     computed:{
+     
     
    cartTotal() {
       return this.cart_data.reduce((res, item) => res + item.price * item.quantity, 0)
-    }
+    },
     }
    
     

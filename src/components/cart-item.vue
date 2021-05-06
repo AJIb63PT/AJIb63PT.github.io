@@ -2,7 +2,7 @@
     <div class="CartItem">
 <div class="cart_item_info">
     <img class="cart_image" :src="cart_item_data.image" alt="">
-    <p>Title^ {{cart_item_data.title}}</p>
+    <p>Title: {{cart_item_data.title}}</p>
     <p>Price$ {{cart_item_data.price}}</p>
 </div>
 <div>
