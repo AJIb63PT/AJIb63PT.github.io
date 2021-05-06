@@ -112,4 +112,7 @@ import vSelect from './v-select.vue'
     padding: 20px;
     border:solid 1px ;
   }
+  .v-select{
+    z-index: 100;
+  }
 </style>

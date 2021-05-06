@@ -56,7 +56,8 @@
       box-shadow: 0 08px 0;
   
       margin-bottom: 8px;
-        position: relative;
+      display: block;
+        
       border: 2px solid #202328;
       color: #202328;
       text-decoration: none;

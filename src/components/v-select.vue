@@ -65,10 +65,13 @@
 
 <style>
   .v-select {
-    position: relative;
-    width: 200px;
-    cursor: pointer;
-    text-align: left;
+    
+     position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 20px;
+    border:solid 1px ;
+    width: 150px;
   }
   .title {
     border: solid 1px #aeaeae;
@@ -86,6 +89,7 @@
     left: 0;
     width: 100%;
     padding: 8px;
+    font-size: 40px;
   }
 
   .options p:hover {
