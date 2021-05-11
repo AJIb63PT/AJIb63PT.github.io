@@ -4,7 +4,7 @@
     <div class="from_calatog_to_cart"> Back to catalog</div>
     </router-link>
         
-        <h1>Корзина</h1>
+        <!-- <h1>Корзина</h1> -->
         <p v-if="!cart_data.length">Купи что-нибудь</p>
         <CartItem
         v-for="(item,index) in cart_data"
@@ -33,7 +33,7 @@ export default {
     name:'cart',
     components:{
         CartItem,
-        // Fixedtoral
+        
     },
     props:{
         cart_data:{
@@ -47,7 +47,7 @@ export default {
     },
     methods:{
         DeleteFromCart(index){
-            // console.log(index)
+           
             this.DELETE_FROM_CART(index)
 
         },

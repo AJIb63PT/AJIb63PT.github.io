@@ -7,6 +7,7 @@ import axios from 'axios'
 Vue.use(Vuex)
 const store = new Vuex.Store({
         state: {
+            searchValue:'',
         
           products: [],
           cart:[],
@@ -48,6 +49,10 @@ const store = new Vuex.Store({
                 state.cart[index].quantity--
               }
             },
+            SET_SEARCH:(state,value)=>{
+                state.searchValue=value
+
+            }
             
         },
         actions:{
@@ -77,6 +82,9 @@ const store = new Vuex.Store({
             DECREMENT_CART_ITEM({commit},index){
                 commit('DECREMENT',index)
             },
+            GET_SEARCH_VALUE({commit},value){
+                commit('SET_SEARCH',value)
+            }
           
     
         },
@@ -87,6 +95,9 @@ const store = new Vuex.Store({
             CART(state){
                 return state.cart;
             },
+            SEARCH_VALUE(state){
+                return state.searchValue
+            }
             
         },
       });

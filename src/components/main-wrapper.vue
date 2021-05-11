@@ -1,12 +1,18 @@
 <template>
-  <div class="main-wrapper">{{title}}
+  <div class="main-wrapper">
+  
+  <Header/>
     <keep-alive>
-    <router-view> </router-view>
+    <router-view>
+       </router-view>
     </keep-alive>
   
   </div>
 </template>
 <script>
+
+import Header from './layouts/header.vue'
+
 
   
 
@@ -14,11 +20,14 @@
     name: 'main-wrapper',
     components: {
      
-    },
+  
+        
+        Header 
+         },
     props: {},
     data() {
       return {
-        title: 'ALBERT FAKE SHOP'
+        
       }
     },
     computed: { },
@@ -30,9 +39,8 @@
 <style>
   .main-wrapper {
     margin: 0 auto;
-    max-width: 900px;
-    font-size: 50px;
-    font-style: inherit;
+   
+  
   }
 </style>
 

@@ -2,7 +2,7 @@
     <div class="CartItem">
 <div class="cart_item_info">
     <img class="cart_image" :src="cart_item_data.image" alt="">
-    <p>Title: {{cart_item_data.title}}</p>
+    <p> {{cart_item_data.title}}</p>
     <p>Price$ {{cart_item_data.price}}</p>
 </div>
 <div>
@@ -16,7 +16,7 @@
 
 
            </div>
-    <button v-on:click="DeleteFromCart">    Delete</button>
+    <button v-on:click="DeleteFromCart">Delete</button>
 </div>
 
     </div>
@@ -38,7 +38,7 @@ export default {
     },
     computed:{},
     mounted(){
-        // this.$set(this.cart_item_data, 'quantity',1)
+    
     },
     methods:{
        
@@ -57,8 +57,9 @@ export default {
 <style >
 
 .CartItem{
-       display: flex;
-    flex-wrap: nowrap;
+      
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 0 8px 0 #e0e0e0;
@@ -69,5 +70,6 @@ export default {
   max-width: 150px;
   max-height: 150px;
 }
+
 
 </style>

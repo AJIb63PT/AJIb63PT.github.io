@@ -1,15 +1,16 @@
 <template>
   <div class="catalog">
-    <router-link :to="{name:'cart',params:{cart_data:CART}}" >
-    <div class="from_calatog_to_cart"> корзина:{{CART.length}}</div>
-    </router-link>
-      <v-select  
+<v-select  
       :selected="selected"
       :options="categories"
       @select="SortByCategories" 
       :isExpanded="IS_DESKTOP"/> 
 
-      
+    <router-link :to="{name:'cart',params:{cart_data:CART}}" >
+    <div class="from_calatog_to_cart"> корзина:{{CART.length}}</div>
+    </router-link>
+     
+      <div class="v-catalog__list"> 
       <catalogItem
       v-for="product in Filter"
       :key="product.id"
@@ -18,6 +19,7 @@
       
       />
       <catalogItem/>
+      </div>
     
      
    
@@ -63,7 +65,9 @@ import vSelect from './v-select.vue'
       'PRODUCTS',
       'CART',
        'IS_MOBILE',
-      'IS_DESKTOP'
+      'IS_DESKTOP',
+      'SEARCH_VALUE'
+
       ]),
       Filter(){
         if(this.sortedProducts.length){
@@ -80,7 +84,8 @@ import vSelect from './v-select.vue'
      this.ADD_TO_CART(data)
     },
     SortByCategories(category){
-      this.sortedProducts=[]
+        this.sortedProducts = [...this.PRODUCTS]
+
       let ct=this;
       this.PRODUCTS.map(function(item){
         if(item.category===category.name){
@@ -88,22 +93,46 @@ import vSelect from './v-select.vue'
         }
       })
 
+    },
+    sortBySearchValue(value){
+        this.sortedProducts = [...this.PRODUCTS]
+
+      if(value){
+      this.sortedProducts=this.sortedProducts.filter(function(item){
+        return item.title.toLowerCase().includes(value.toLowerCase())
+      })}
+      else{
+        this.sortedProducts=this.PRODUCTS
+      }
+      
     }
     
     
     },
-    watch: {},
+    watch: {
+      SEARCH_VALUE(){
+      this.sortBySearchValue(this.SEARCH_VALUE)
+    }},
    mounted() {
-      this.GET_PRODUCTS_FROM_API()}
+      this.GET_PRODUCTS_FROM_API()
+      .then((response) => {
+          if (response.data) {
+            this.sortByCategories()
+      this.sortBySearchValue(this.SEARCH_VALUE)
+      }
+      })
+   }
+      
   }
 </script>
 
 <style>
-  .catalog {
+  
+  .v-catalog__list{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
   }
   .from_calatog_to_cart{
     position: absolute;

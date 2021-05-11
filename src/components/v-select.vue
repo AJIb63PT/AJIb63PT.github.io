@@ -67,11 +67,13 @@
   .v-select {
     
      position: absolute;
-    top: 10px;
+    top: 5px;
     left: 10px;
     padding: 20px;
     border:solid 1px ;
     width: 150px;
+    cursor: pointer;
+    
   }
   .title {
     border: solid 1px #aeaeae;
@@ -85,7 +87,7 @@
     border: solid 1px #aeaeae;
     background: #ffffff;
     position: absolute;
-    top: 30px;
+    top: 10px;
     left: 0;
     width: 100%;
     padding: 8px;
