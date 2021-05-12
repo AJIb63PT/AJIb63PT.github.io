@@ -59,16 +59,29 @@ export default {
 .CartItem{
       
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 0 8px 0 #e0e0e0;
     padding:8px;
     margin-bottom:12px;
+    min-width: 100%;
 }
 .cart_image{
   max-width: 150px;
   max-height: 150px;
+}
+@media  screen and (min-width: 100px) and (max-width: 767px){
+    .CartItem{
+      display: flex;
+      flex-direction: initial;
+      font-size: 14px;
+    
+
+    }
+    .cart_item_info{
+        max-width: 50%;
+    }
 }
 
 

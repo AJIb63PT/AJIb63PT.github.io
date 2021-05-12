@@ -61,8 +61,8 @@
       font-size: 15px;
       padding: 8px ;
       letter-spacing: 0.75px;
-       max-width: 250px;
-  max-height: 350px;
+       
+  max-height: 30%;
 }
 .image{
   max-width: 150px;
@@ -75,5 +75,8 @@
   cursor: pointer;
   text-decoration: none;
 }
+
+  
+
 
 </style>

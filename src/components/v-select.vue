@@ -97,4 +97,25 @@
   .options p:hover {
     background: #e7e7e7;
   }
+  @media  screen and (min-width: 100px) and (max-width: 767px){
+    .v-select{
+      position: absolute;
+    top: 5px;
+    left: 10px;
+    padding: 20px;
+    border:solid 1px ;
+    width: 50px;
+    cursor: pointer;
+    }
+    .options {
+    border: solid 1px #aeaeae;
+    background: #ffffff;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+  }
+  }
 </style>

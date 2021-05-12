@@ -90,11 +90,20 @@ export default {
       display: flex;
       justify-content: center;
       background: rgba(114, 199, 102, 0.933);
-      color: #ffffff;
+      color:black;
       font-size: 20px;
+      opacity: 0.7;
+      
 }
 .total_name{
     margin-right: 20px;
+}
+@media  screen and (min-width: 100px) and (max-width: 767px){
+    .cart{
+      display: flex;
+      flex-direction: column;
+    
+    }
 }
 </style>
 

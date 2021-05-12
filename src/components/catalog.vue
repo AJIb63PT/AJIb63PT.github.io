@@ -4,7 +4,7 @@
       :selected="selected"
       :options="categories"
       @select="SortByCategories" 
-      :isExpanded="IS_DESKTOP"/> 
+      /> 
 
     <router-link :to="{name:'cart',params:{cart_data:CART}}" >
     <div class="from_calatog_to_cart"> корзина:{{CART.length}}</div>
@@ -84,7 +84,7 @@ import vSelect from './v-select.vue'
      this.ADD_TO_CART(data)
     },
     SortByCategories(category){
-        this.sortedProducts = [...this.PRODUCTS]
+        this.sortedProducts = []
 
       let ct=this;
       this.PRODUCTS.map(function(item){
@@ -130,6 +130,8 @@ import vSelect from './v-select.vue'
   
   .v-catalog__list{
     display: flex;
+  
+   
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
@@ -143,5 +145,24 @@ import vSelect from './v-select.vue'
   }
   .v-select{
     z-index: 100;
+  }
+  @media  screen and (min-width: 100px) and (max-width: 767px){
+    .v-catalog__list{
+      display: flex;
+      flex-direction: column;
+    
+    }
+    .from_calatog_to_cart{
+      position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 10px;
+    border:solid 1px ;
+    margin: 5px;
+    font-size: 14px;
+  
+    width: 50px;
+    }
+    
   }
 </style>
