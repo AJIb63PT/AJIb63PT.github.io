@@ -1,24 +1,18 @@
 <template>
   <div id="app">
-   
- 
-    <MainWrapper/>
+    <MainWrapper />
   </div>
 </template>
 
 <script>
-import MainWrapper from './components/main-wrapper'
-
-
+import MainWrapper from "./components/main-wrapper";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     MainWrapper,
-    
-    
-  }
-}
+  },
+};
 </script>
 
 <style>
