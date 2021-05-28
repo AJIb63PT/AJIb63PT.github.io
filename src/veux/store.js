@@ -42,7 +42,9 @@ const store = new Vuex.Store({
       }
     },
     SET_SEARCH: (state, value) => {
-      state.searchValue = value;
+      {
+        state.searchValue = value;
+      }
     },
   },
   actions: {

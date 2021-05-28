@@ -9,9 +9,10 @@
 
     <div class="search-field">
       <input type="text" v-model="searchValue" />
-      <button class="search-btn">
+      <button class="search-btn" :disabled="!canSearch">
         <i class="materials-icons" @click="search(searchValue)">search</i>
       </button>
+      <button @click="searchClean()">clean search</button>
     </div>
   </div>
 </template>
@@ -25,12 +26,27 @@ export default {
       searchValue: "",
     };
   },
-  computed: {},
+  computed: {
+    canSearch() {
+      return this.searchValue.trim();
+    },
+  },
   methods: {
     ...mapActions(["GET_SEARCH_VALUE"]),
     search(value) {
       this.GET_SEARCH_VALUE(value);
-      this.$router.push("/catalog");
+
+      if (this.$route.path !== "/catalog") {
+        this.$router.push("/catalog");
+      }
+    },
+    searchClean() {
+      this.searchValue = "";
+      this.GET_SEARCH_VALUE();
+
+      if (this.$route.path !== "/catalog") {
+        this.$route.push("/catalog");
+      }
     },
   },
 };
