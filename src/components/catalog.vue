@@ -1,7 +1,7 @@
 <template>
   <div class="catalog">
     <v-select
-      @select="SortByCategories"
+      @select="SortByCategories, (selected = $event)"
       :selected="selected"
       :options="categories"
     />
