@@ -1,13 +1,13 @@
 <template>
   <div class="v-select">
     <p class="title" @click="areOptionsVisible = !areOptionsVisible">
-      {{ selected }}
+      {{ selectedName }}
     </p>
     <div class="options" v-if="areOptionsVisible">
       <p
         v-for="option in options"
         :key="option.value"
-        @click="selectOption(option.name)"
+        @click="selectOption(option)"
       >
         {{ option.name }}
       </p>
@@ -34,14 +34,16 @@ export default {
   },
   data() {
     return {
+      selectedName: "ALL",
       areOptionsVisible: false,
     };
   },
   methods: {
     selectOption(option) {
       this.$emit("select", option);
-
       this.areOptionsVisible = false;
+
+      this.selectedName = option.name;
     },
     hideSelect() {
       this.areOptionsVisible = false;

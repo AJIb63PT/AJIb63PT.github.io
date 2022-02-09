@@ -1,11 +1,10 @@
 <template>
   <div class="catalog">
     <v-select
-      @select="SortByCategories, (selected = $event)"
+      @select="SortByCategories"
       :selected="selected"
       :options="categories"
     />
-
     <router-link :to="{ name: 'cart', params: { cart_data: CART } }">
       <div class="from_calatog_to_cart">корзина:{{ CART.length }}</div>
     </router-link>
@@ -34,6 +33,7 @@ export default {
   props: {},
   data() {
     return {
+      back: null,
       categories: [
         {
           name: "All",
