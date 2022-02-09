@@ -15,7 +15,9 @@
       </div>
     </Popup>
     <img class="image" :src="product_data.image" alt="image" />
+    <p class="catalogItem__price">{{ product_data.title }}</p>
     <p class="catalogItem__price">Price$ {{ product_data.price }}</p>
+
     <v-btn
       :class="!isInfoPopupVisible ? 'sub' : ''"
       small
@@ -84,10 +86,10 @@ export default {
   padding: 8px;
   letter-spacing: 0.75px;
 
-  max-height: 300px;
-  min-height: 300px;
-  max-width: 570px;
-  min-width: 570px;
+  max-height: 330px;
+  min-height: 330px;
+  max-width: 420px;
+  min-width: 420px;
 }
 .image {
   max-width: 150px;
