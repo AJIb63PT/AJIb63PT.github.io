@@ -4,22 +4,31 @@
       v-if="isInfoPopupVisible"
       @closepopup="closepopup"
       :Popuptitle="product_data.title"
-      leftbttitle="купить"
+      leftbttitle="Купить"
       @leftbtnAction="addToCart"
     >
       <div>
         <img class="image" :src="product_data.image" alt="image" />
-
         <p>{{ product_data.price }} $</p>
         <p>{{ product_data.category }}</p>
         <p>{{ product_data.description }}</p>
       </div>
     </Popup>
-
     <img class="image" :src="product_data.image" alt="image" />
     <p class="catalogItem__price">Price$ {{ product_data.price }}</p>
-    <button @click="showpopupinfo">more about</button>
-    <button v-on:click="addToCart">купить</button>
+    <v-btn
+      :class="!isInfoPopupVisible ? 'sub' : 'subMobile'"
+      small
+      @click="showpopupinfo"
+    >
+      Подробнее</v-btn
+    >
+    <v-btn
+      :class="!isInfoPopupVisible ? 'sub' : 'subMobile'"
+      small
+      @click="addToCart"
+      >Купить</v-btn
+    >
   </div>
 </template>
 <script>
@@ -48,9 +57,11 @@ export default {
     },
     showpopupinfo() {
       this.isInfoPopupVisible = true;
+      this.$emit("fixedBody", this.isInfoPopupVisible);
     },
     closepopup() {
       this.isInfoPopupVisible = false;
+      this.$emit("fixedBody", this.isInfoPopupVisible);
     },
   },
   watch: {},
@@ -76,10 +87,36 @@ export default {
   padding: 8px;
   letter-spacing: 0.75px;
 
-  max-height: 30%;
+  max-height: 300px;
+  min-height: 300px;
+  max-width: 570px;
+  min-width: 570px;
 }
 .image {
   max-width: 150px;
-  max-height: 150px;
+  min-width: 150px;
+  max-height: 180px;
+  min-height: 180px;
+}
+.v-btn {
+  visibility: hidden;
+  z-index: 1;
+}
+.catalogItem:hover > .sub {
+  visibility: visible;
+  transform: translateY(50px);
+  opacity: 1;
+  z-index: 1;
+}
+@media screen and (min-width: 100px) and (max-width: 800px) {
+  .v-btn {
+    visibility: visible;
+    z-index: 1;
+  }
+  .catalogItem:hover > .sub {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+  }
 }
 </style>

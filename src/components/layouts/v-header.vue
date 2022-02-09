@@ -1,26 +1,39 @@
 <template>
   <div class="header">
     <router-link :to="{ name: 'mainPage' }">
-      <img
-        src="https://e7.pngegg.com/pngimages/783/960/png-clipart-brown-a-letter-illustration-paper-letter-case-alphabet-burning-letter-a-miscellaneous-angle.png"
-        alt=""
-      />
+      <img class="mainA" src="../icons/mainA.svg" alt="A" />
     </router-link>
 
     <div class="search-field">
-      <input type="text" v-model="searchValue" />
-      <button class="search-btn" :disabled="!canSearch">
-        <i class="materials-icons" @click="search(searchValue)">search</i>
+      <input type="text" v-model="searchValue" style="background-color:#fff" />
+      <button
+        class="search-btn"
+        :disabled="!canSearch"
+        @click="search(searchValue)"
+      >
+        <img
+          class="materials-icons"
+          src="../icons/shopping-search.svg"
+          alt="search"
+        />
       </button>
-      <button @click="searchClean()">clean search</button>
+      <button @click="searchClean()">
+        <img
+          class="materials-icons"
+          src="../icons/backspace.svg"
+          alt="remote"
+        />
+      </button>
     </div>
   </div>
 </template>
 <script>
 import { mapActions } from "vuex";
+
 export default {
-  name: "header",
+  name: "v-header",
   props: {},
+
   data() {
     return {
       searchValue: "",
@@ -52,7 +65,7 @@ export default {
 };
 </script>
 <style>
-.header img {
+.mainA {
   width: 50px;
   height: 50px;
 }
@@ -66,8 +79,13 @@ export default {
   width: 100%;
   top: 0;
   left: 0;
+  z-index: 2;
 }
 .search-field {
   padding: 16px;
+}
+.materials-icons {
+  width: 25px;
+  height: 25px;
 }
 </style>

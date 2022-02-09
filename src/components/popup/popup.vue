@@ -8,10 +8,12 @@
         <slot> </slot>
       </div>
       <div class="popup__footer">
-        <button v-on:click="leftbtnAction">
-          {{ leftbttitle }}
+        <button @click="leftbtnAction">
+          <img src="../icons/cartBuy.svg" alt="Купить" />
         </button>
-        <button v-on:click="closepopup">close</button>
+        <button @click="closepopup">
+          <img src="../icons/close.svg" alt="Закрыть" />
+        </button>
       </div>
     </div>
   </div>
@@ -44,7 +46,7 @@ export default {
 </script>
 <style>
 .popup_wrapper {
-  background: rgba(64, 64, 64, 0.4);
+  background: rgba(10, 10, 10, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,8 +60,8 @@ export default {
 .popup {
   padding: 16px;
   position: fixed;
-  top: 50px;
-
+  top: 150px;
+  z-index: 4;
   width: 400px;
   background: rgb(255, 255, 255);
 }

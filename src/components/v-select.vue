@@ -3,6 +3,13 @@
     <p class="title" @click="areOptionsVisible = !areOptionsVisible">
       {{ selectedName }}
     </p>
+    <img
+      src="./icons/list.svg"
+      alt="icon"
+      class="titleMini"
+      @click="areOptionsVisible = !areOptionsVisible"
+    />
+
     <div class="options" v-if="areOptionsVisible">
       <p
         v-for="option in options"
@@ -60,16 +67,14 @@ export default {
 
 <style>
 .v-select {
-  position: absolute;
-  top: 5px;
+  width: 300px;
+  position: fixed !important;
+
+  top: 10px;
   left: 10px;
-  padding: 20px;
-  border: solid 1px;
-  width: 150px;
   cursor: pointer;
 }
 .title {
-  border: solid 1px #aeaeae;
   padding: 8px;
 }
 .v-select p {
@@ -90,25 +95,39 @@ export default {
 .options p:hover {
   background: #e7e7e7;
 }
+.titleMini {
+  display: none;
+}
 @media screen and (min-width: 100px) and (max-width: 767px) {
   .v-select {
     position: absolute;
     top: 5px;
     left: 10px;
-    padding: 20px;
-    border: solid 1px;
-    width: 50px;
+    padding: 30px;
+    width: 50%;
     cursor: pointer;
   }
   .options {
-    border: solid 1px #aeaeae;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     background: #ffffff;
     position: absolute;
     top: 10px;
     left: 0;
     width: 100%;
     padding: 8px;
-    font-size: 14px;
+    font-size: 25px;
+  }
+  .title {
+    display: none;
+  }
+  .titleMini {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 }
 </style>

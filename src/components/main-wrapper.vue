@@ -1,18 +1,18 @@
 <template>
   <div class="main-wrapper">
-    <Header />
+    <HeaderLayouts />
     <keep-alive>
       <router-view> </router-view>
     </keep-alive>
   </div>
 </template>
 <script>
-import Header from "./layouts/header.vue";
+import HeaderLayouts from "./layouts/v-header.vue";
 
 export default {
   name: "main-wrapper",
   components: {
-    Header,
+    HeaderLayouts,
   },
   props: {},
   data() {

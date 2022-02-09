@@ -1,7 +1,9 @@
 <template>
   <div class="cart">
     <router-link :to="{ name: 'catalog' }">
-      <div class="from_calatog_to_cart">Back to catalog</div>
+      <div class="from_calatog_to_cart">
+        <img src="./icons/arrow-left.svg" alt="" />
+      </div>
     </router-link>
 
     <!-- <h1>Корзина</h1> -->

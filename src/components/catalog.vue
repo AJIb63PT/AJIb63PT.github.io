@@ -1,12 +1,18 @@
 <template>
-  <div class="catalog">
+  <div :style="getScorllY">
     <v-select
       @select="SortByCategories"
       :selected="selected"
       :options="categories"
     />
     <router-link :to="{ name: 'cart', params: { cart_data: CART } }">
-      <div class="from_calatog_to_cart">корзина:{{ CART.length }}</div>
+      <div class="from_calatog_to_cart">
+        <img
+          src="./icons/basket.svg"
+          alt="icon"
+          style="width:24px;height:24px"
+        />{{ CART.length }}
+      </div>
     </router-link>
 
     <div class="v-catalog__list">
@@ -15,6 +21,7 @@
         :key="product.id"
         :product_data="product"
         @addToCart="addToCart"
+        @fixedBody="fixedBody = $event"
       />
     </div>
   </div>
@@ -33,7 +40,7 @@ export default {
   props: {},
   data() {
     return {
-      back: null,
+      fixedBody: false,
       categories: [
         {
           name: "All",
@@ -55,6 +62,7 @@ export default {
       ],
       selected: "All",
       sortedProducts: [],
+      top: 0,
     };
   },
   computed: {
@@ -65,6 +73,32 @@ export default {
       } else {
         return this.PRODUCTS;
       }
+    },
+    getScorllY() {
+      if (this.fixedBody !== false) {
+        const scrollY = document.documentElement.style.getPropertyValue(
+          "--scroll-y"
+        );
+        const body = document.body;
+        body.style.position = "fixed";
+        body.style.top = `-${scrollY}`;
+        console.log("if" + scrollY);
+      } else {
+        const body = document.body;
+        const scrollY = body.style.top;
+        body.style.position = "";
+        body.style.top = "";
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+      }
+
+      window.addEventListener("scroll", () => {
+        document.documentElement.style.setProperty(
+          "--scroll-y",
+          `${window.scrollY}px`
+        );
+      });
+
+      return scrollY;
     },
   },
   methods: {
@@ -121,14 +155,14 @@ export default {
   align-items: center;
 }
 .from_calatog_to_cart {
-  position: absolute;
+  position: fixed;
   top: 10px;
   right: 10px;
   padding: 20px;
-  border: solid 1px;
+  z-index: 3;
 }
 .v-select {
-  z-index: 100;
+  z-index: 3;
 }
 @media screen and (min-width: 100px) and (max-width: 767px) {
   .v-catalog__list {
@@ -136,11 +170,10 @@ export default {
     flex-direction: column;
   }
   .from_calatog_to_cart {
-    position: absolute;
+    position: fixed;
     top: 5px;
     right: 5px;
     padding: 10px;
-    border: solid 1px;
     margin: 5px;
     font-size: 14px;
 
