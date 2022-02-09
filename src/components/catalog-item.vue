@@ -17,16 +17,13 @@
     <img class="image" :src="product_data.image" alt="image" />
     <p class="catalogItem__price">Price$ {{ product_data.price }}</p>
     <v-btn
-      :class="!isInfoPopupVisible ? 'sub' : 'subMobile'"
+      :class="!isInfoPopupVisible ? 'sub' : ''"
       small
       @click="showpopupinfo"
     >
       Подробнее</v-btn
     >
-    <v-btn
-      :class="!isInfoPopupVisible ? 'sub' : 'subMobile'"
-      small
-      @click="addToCart"
+    <v-btn :class="!isInfoPopupVisible ? 'sub' : ''" small @click="addToCart"
       >Купить</v-btn
     >
   </div>
@@ -113,8 +110,16 @@ export default {
     visibility: visible;
     z-index: 1;
   }
+  .sub {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+  }
+}
+@media (hover: none) {
   .catalogItem:hover > .sub {
     visibility: visible;
+    transform: translateY(0px);
     opacity: 1;
     z-index: 1;
   }

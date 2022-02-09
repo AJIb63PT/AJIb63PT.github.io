@@ -80,4 +80,15 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (min-width: 100px) and (max-width: 767px) {
+  .popup {
+    padding: 16px;
+    position: fixed;
+    top: 50px;
+    z-index: 4;
+    width: 100%;
+    margin: 10px;
+    background: rgb(255, 255, 255);
+  }
+}
 </style>

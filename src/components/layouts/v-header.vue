@@ -4,7 +4,7 @@
       <img class="mainA" src="../icons/mainA.svg" alt="A" />
     </router-link>
 
-    <div class="search-field">
+    <div v-if="routerCart" class="search-field">
       <input type="text" v-model="searchValue" style="background-color:#fff" />
       <button
         class="search-btn"
@@ -42,6 +42,11 @@ export default {
   computed: {
     canSearch() {
       return this.searchValue.trim();
+    },
+    routerCart() {
+      const IsVisbleSearch = this.$route.path == "/catalog";
+
+      return IsVisbleSearch;
     },
   },
   methods: {

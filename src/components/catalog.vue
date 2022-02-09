@@ -153,6 +153,7 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  margin: 5px;
 }
 .from_calatog_to_cart {
   position: fixed;
