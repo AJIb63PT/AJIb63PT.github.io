@@ -33,10 +33,6 @@ export default {
     },
   },
   props: {
-    leftbttitle: {
-      type: String,
-      default: "popup name",
-    },
     Popuptitle: {
       type: String,
       default: "ok",
@@ -46,7 +42,7 @@ export default {
 </script>
 <style>
 .popup_wrapper {
-  background: rgba(10, 10, 10, 0.4);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,6 +51,7 @@ export default {
   left: 0;
   top: 0;
   bottom: 0;
+  z-index: 3;
 }
 
 .popup {
@@ -86,7 +83,7 @@ export default {
     position: fixed;
     top: 50px;
     z-index: 4;
-    width: 100%;
+    width: 75%;
     margin: 10px;
     background: rgb(255, 255, 255);
   }

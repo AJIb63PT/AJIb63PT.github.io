@@ -4,18 +4,18 @@
       v-if="isInfoPopupVisible"
       @closepopup="closepopup"
       :Popuptitle="product_data.title"
-      leftbttitle="Купить"
       @leftbtnAction="addToCart"
     >
       <div>
         <img class="image" :src="product_data.image" alt="image" />
         <p>{{ product_data.price }} $</p>
-        <p>{{ product_data.category }}</p>
-        <p>{{ product_data.description }}</p>
+        <p :title="product_data.description">
+          {{ shortDescription(product_data.description) }}
+        </p>
       </div>
     </Popup>
     <img class="image" :src="product_data.image" alt="image" />
-    <p class="catalogItem__price">{{ product_data.title }}</p>
+    <p class="catalogItem__title">{{ product_data.title }}</p>
     <p class="catalogItem__price">Price$ {{ product_data.price }}</p>
 
     <v-btn
@@ -51,10 +51,20 @@ export default {
   },
   computed: {},
   methods: {
+    shortDescription(description) {
+      if (description.length < 180) {
+        return description;
+      } else {
+        return description.slice(0, 180) + "...";
+      }
+    },
     addToCart() {
       this.$emit("addToCart", this.product_data);
     },
     showpopupinfo() {
+      let str =
+        "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem";
+      console.log(str.length);
       this.isInfoPopupVisible = true;
       this.$emit("fixedBody", this.isInfoPopupVisible);
     },
@@ -100,6 +110,7 @@ export default {
 .v-btn {
   visibility: hidden;
   z-index: 1;
+  margin: 0 0 10px 5px;
 }
 .catalogItem:hover > .sub {
   visibility: visible;
@@ -117,11 +128,15 @@ export default {
     opacity: 1;
     z-index: 1;
   }
+  .catalogItem__price {
+    margin: 0px 0px 50px 0px;
+  }
 }
 @media (hover: none) {
   .catalogItem:hover > .sub {
     visibility: visible;
     transform: translateY(0px);
+
     opacity: 1;
     z-index: 1;
   }

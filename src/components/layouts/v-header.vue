@@ -93,4 +93,12 @@ export default {
   width: 25px;
   height: 25px;
 }
+input {
+  width: 320px;
+}
+@media screen and (min-width: 50px) and (max-width: 767px) {
+  input {
+    width: 120px;
+  }
+}
 </style>
