@@ -5,7 +5,12 @@
     </router-link>
 
     <div v-if="routerCart" class="search-field">
-      <input type="text" v-model="searchValue" style="background-color:#fff" />
+      <input
+        class="inputwid"
+        type="text"
+        v-model="searchValue"
+        style="background-color:#fff"
+      />
       <button
         class="search-btn"
         :disabled="!canSearch"
@@ -93,11 +98,11 @@ export default {
   width: 25px;
   height: 25px;
 }
-input {
+.inputwid {
   width: 320px;
 }
 @media screen and (min-width: 50px) and (max-width: 767px) {
-  input {
+  .inputwid {
     width: 120px;
   }
 }
