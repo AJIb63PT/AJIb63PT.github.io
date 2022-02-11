@@ -14,6 +14,12 @@
         />{{ CART.length }}
       </div>
     </router-link>
+    <img
+      v-if="loader"
+      class="loader"
+      src="./icons/page-loader.gif"
+      alt="loading..."
+    />
     <div class="v-catalog__list">
       <catalogItem
         v-for="product in Filter"
@@ -29,7 +35,6 @@
 import catalogItem from "./catalog-item.vue";
 import { mapActions, mapGetters } from "vuex";
 import vSelect from "./v-select.vue";
-
 export default {
   name: "catalog",
   components: {
@@ -39,6 +44,8 @@ export default {
   props: {},
   data() {
     return {
+      loader: true,
+
       fixedBody: false,
       categories: [
         {
@@ -141,10 +148,12 @@ export default {
     },
   },
   mounted() {
+    this.loader = true;
     this.GET_PRODUCTS_FROM_API().then((response) => {
       if (response.data) {
         this.SortByCategories();
         this.sortBySearchValue(this.SEARCH_VALUE);
+        this.loader = false;
       }
     });
   },
