@@ -44,6 +44,7 @@ export default {
       this.$emit("closepopup");
     },
     leftbtnAction() {
+      console.log("leftbtnAction");
       this.backflip = !this.backflip;
       this.$emit("leftbtnAction");
     },

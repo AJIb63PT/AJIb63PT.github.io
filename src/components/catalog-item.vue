@@ -4,7 +4,7 @@
       v-if="isInfoPopupVisible"
       @closepopup="closepopup"
       :Popuptitle="product_data.title"
-      @leftbtnAction="addToCart, (backflip = false)"
+      @leftbtnAction="addToCart"
     >
       <div>
         <img class="image" :src="product_data.image" alt="image" />
@@ -73,7 +73,9 @@ export default {
       }
     },
     addToCart() {
-      this.backflip = !this.backflip;
+      if (this.backflip) {
+        this.backflip = !this.backflip;
+      }
       this.$emit("addToCart", this.product_data);
     },
     showpopupinfo() {
