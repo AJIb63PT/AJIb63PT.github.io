@@ -14,12 +14,8 @@
         />{{ CART.length }}
       </div>
     </router-link>
-    <img
-      v-if="loader"
-      class="loader"
-      src="./icons/page-loader.gif"
-      alt="loading..."
-    />
+    <pageLoader v-if="loader" />
+
     <div class="v-catalog__list">
       <catalogItem
         v-for="product in Filter"
@@ -35,11 +31,13 @@
 import catalogItem from "./catalog-item.vue";
 import { mapActions, mapGetters } from "vuex";
 import vSelect from "./v-select.vue";
+import pageLoader from "./pageLoader.vue";
 export default {
   name: "catalog",
   components: {
     catalogItem,
     vSelect,
+    pageLoader,
   },
   props: {},
   data() {
