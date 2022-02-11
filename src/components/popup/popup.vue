@@ -8,12 +8,24 @@
         <slot> </slot>
       </div>
       <div class="popup__footer">
-        <button @click="leftbtnAction">
-          <img src="../icons/cartBuy.svg" alt="Купить" />
-        </button>
-        <button @click="closepopup">
-          <img src="../icons/close.svg" alt="Закрыть" />
-        </button>
+        <div class="flip">
+          <div :class="backflip ? 'flip__body' : 'flip__bodyflip'">
+            <div @click="leftbtnAction" v-if="backflip" class="flip__front">
+              <img src="../icons/cartBuy.svg" alt="Купить" />
+            </div>
+            <div @click="leftbtnAction" v-if="!backflip" class="flip__back">
+              <img src="../icons/cartBuy.svg" alt="Купить" />
+            </div>
+          </div>
+        </div>
+
+        <div class="flip">
+          <div :class="backflipClose ? 'flip__body' : 'flip__bodyflip'">
+            <div @click="closepopup" v-if="backflipClose" class="flip__front">
+              <img src="../icons/close.svg" alt="Закрыть" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -22,13 +34,17 @@
 export default {
   name: "popup",
   data() {
-    return {};
+    return {
+      backflip: true,
+      backflipClose: true,
+    };
   },
   methods: {
     closepopup() {
       this.$emit("closepopup");
     },
     leftbtnAction() {
+      this.backflip = !this.backflip;
       this.$emit("leftbtnAction");
     },
   },
@@ -81,6 +97,48 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.flip {
+}
+.flip__body {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  transition: all 0.8s ease 0s;
+  transform-style: preserve-3d;
+}
+.flip__front,
+.flip__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flip__front {
+  cursor: pointer;
+
+  z-index: 2;
+  transform: rotateY(0deg);
+  background-color: rgba(99, 105, 197, 0.1);
+
+  backface-visibility: hidden;
+}
+.flip__back {
+  transform: rotateY(-180deg);
+  background-color: hsla(236, 46%, 58%, 0.1);
+}
+
+.flip__bodyflip {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  transition: all 0.8s ease 0s;
+  transform-style: preserve-3d;
+  transform: rotateY(-180deg);
 }
 @media screen and (min-width: 100px) and (max-width: 767px) {
   .popup_wrapper {

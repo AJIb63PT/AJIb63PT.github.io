@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$colors: #8cc271, #5f9ea0, #1c2492, #333;
+$colors: hsla(100, 40%, 60%, 0.692), #5f9ea0, hsla(236, 46%, 58%, 0.767), #333;
 
 .page-loader {
   display: flex;

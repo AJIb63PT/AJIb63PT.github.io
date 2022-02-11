@@ -104,7 +104,7 @@ export default {
     top: 5px;
     left: 10px;
     padding: 30px;
-    width: 50%;
+    width: 60%;
     cursor: pointer;
   }
   .options {
@@ -113,6 +113,7 @@ export default {
     align-items: flex-start;
     background: #ffffff;
     position: absolute;
+    width: 60%;
     top: 10px;
     left: 0;
     width: 100%;

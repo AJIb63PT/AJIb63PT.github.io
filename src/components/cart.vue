@@ -6,7 +6,6 @@
       </div>
     </router-link>
 
-    <!-- <h1>Корзина</h1> -->
     <p v-if="!cart_data.length">Купи что-нибудь</p>
     <CartItem
       v-for="(item, index) in cart_data"

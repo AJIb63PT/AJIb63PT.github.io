@@ -2,19 +2,30 @@
   <div class="CartItem">
     <div class="cart_item_info">
       <img class="cart_image" :src="cart_item_data.image" alt="" />
-      <p>{{ cart_item_data.title }}</p>
-      <p>Price$ {{ cart_item_data.price }}</p>
+      <p class="catalogItem__title">{{ cart_item_data.title }}</p>
+      <p class="catalogItem__price">Price$ {{ cart_item_data.price }}</p>
     </div>
     <div>
       <div class="cart_item_quantity">
-        <p>кол-во</p>
-        <button class="quantity__tools">
-          <button class="quantity__btn" v-on:click="decrementItem">-</button>
+        <div class="quantity__tools">
+          <div
+            v-if="cart_item_data.quantity !== 1"
+            class="quantity__btn"
+            v-on:click="decrementItem"
+          >
+            -
+          </div>
+          <div
+            v-if="cart_item_data.quantity == 1"
+            class="quantity__btn"
+            v-on:click="DeleteFromCart"
+          >
+            Удалить из корзины
+          </div>
           {{ cart_item_data.quantity }}
-          <button class="quantity__btn" v-on:click="incrementItem">+</button>
-        </button>
+          <div class="quantity__btn" v-on:click="incrementItem">+</div>
+        </div>
       </div>
-      <button v-on:click="DeleteFromCart">Delete</button>
     </div>
   </div>
 </template>
@@ -65,7 +76,34 @@ export default {
   max-height: 150px;
 }
 .quantity__btn {
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 160px;
+  min-width: 160px;
+  max-height: 60px;
+  min-height: 60px;
+  cursor: pointer;
+  color: #000;
+  background-color: rgba(114, 199, 102, 0.733);
+  border: 1px solid #333;
+  padding: 10px;
+}
+.catalogItem__price {
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+}
+.catalogItem__title {
+  text-align: left;
+
+  font-size: 16px;
+
+  color: #999999;
+  line-height: 14px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 2px;
 }
 @media screen and (min-width: 100px) and (max-width: 767px) {
   .CartItem {
