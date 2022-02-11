@@ -2,28 +2,43 @@
   <div class="CartItem">
     <div class="cart_item_info">
       <img class="cart_image" :src="cart_item_data.image" alt="" />
-      <p class="catalogItem__title">{{ cart_item_data.title }}</p>
-      <p class="catalogItem__price">Price$ {{ cart_item_data.price }}</p>
+      <div class="cart_item_info_text">
+        <p class="cart_item__title">{{ cart_item_data.title }}</p>
+        <p class="cart_item__description">{{ cart_item_data.description }}</p>
+
+        <p class="cart_item__price">Price$ {{ cart_item_data.price }}</p>
+      </div>
     </div>
-    <div>
-      <div class="cart_item_quantity">
-        <div class="quantity__tools">
+    <div class="cart_item_quantity">
+      <span class="cart_item__price">
+        {{ cart_item_data.quantity }}
+      </span>
+      <div class="quantity__tools">
+        <div class="quantity__tools_math">
           <div
             v-if="cart_item_data.quantity !== 1"
-            class="quantity__btn"
+            class="quantity__btn_min"
             v-on:click="decrementItem"
           >
             -
           </div>
           <div
             v-if="cart_item_data.quantity == 1"
-            class="quantity__btn"
+            class="quantity__btn_del"
             v-on:click="DeleteFromCart"
           >
             Удалить из корзины
           </div>
-          {{ cart_item_data.quantity }}
-          <div class="quantity__btn" v-on:click="incrementItem">+</div>
+
+          <div class="quantity__btn_plus" v-on:click="incrementItem">+</div>
+        </div>
+
+        <div
+          v-if="cart_item_data.quantity !== 1"
+          class="quantity__btn"
+          v-on:click="DeleteFromCart"
+        >
+          <img src="./icons/trash.svg" alt="" />
         </div>
       </div>
     </div>
@@ -63,7 +78,6 @@ export default {
 <style>
 .CartItem {
   display: flex;
-  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 0 8px 0 #e0e0e0;
@@ -73,14 +87,28 @@ export default {
 }
 .cart_image {
   max-width: 150px;
-  max-height: 150px;
+  min-width: 150px;
+
+  max-height: 250px;
+  min-height: 250px;
 }
+.cart_item_info {
+  display: flex;
+  flex-direction: row;
+}
+.quantity__tools_math {
+  display: flex;
+}
+.quantity__btn_del,
+.quantity__btn_min,
+.quantity__btn_plus,
 .quantity__btn {
+  margin: 1px;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 160px;
-  min-width: 160px;
+  max-width: 80px;
+  min-width: 80px;
   max-height: 60px;
   min-height: 60px;
   cursor: pointer;
@@ -89,12 +117,30 @@ export default {
   border: 1px solid #333;
   padding: 10px;
 }
-.catalogItem__price {
+
+.quantity__btn {
+  max-width: 162px;
+  min-width: 162px;
+  max-height: 60px;
+  min-height: 60px;
+}
+.cart_item__price {
   text-align: left;
   font-size: 18px;
   font-weight: bold;
 }
-.catalogItem__title {
+.cart_item__title {
+  text-align: left;
+
+  font-size: 16px;
+
+  color: #999999;
+  line-height: 14px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 2px;
+}
+.cart_item__description {
   text-align: left;
 
   font-size: 16px;
@@ -113,6 +159,9 @@ export default {
   }
   .cart_item_info {
     max-width: 50%;
+  }
+  .cart_item__description {
+    display: none;
   }
 }
 </style>
