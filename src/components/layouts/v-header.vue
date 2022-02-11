@@ -16,11 +16,7 @@
         :disabled="!canSearch"
         @click="search(searchValue)"
       >
-        <img
-          class="materials-icons"
-          src="../icons/shopping-search.svg"
-          alt="search"
-        />
+        <img class="materials-icons" src="../icons/magnify.svg" alt="search" />
       </button>
       <button @click="searchClean()">
         <img

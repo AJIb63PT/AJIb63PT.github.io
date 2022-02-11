@@ -43,6 +43,7 @@ export default {
 <style>
 .popup_wrapper {
   background: rgba(0, 0, 0, 0.5);
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,6 +67,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #000;
+  font-size: 16px;
+  white-space: unset;
+  text-overflow: unset;
 }
 .popup__content {
   display: flex;
@@ -78,6 +83,18 @@ export default {
   align-items: center;
 }
 @media screen and (min-width: 100px) and (max-width: 767px) {
+  .popup_wrapper {
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+
+    bottom: 0;
+  }
   .popup {
     padding: 16px;
     position: fixed;

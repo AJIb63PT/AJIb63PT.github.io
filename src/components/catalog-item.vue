@@ -8,15 +8,15 @@
     >
       <div>
         <img class="image" :src="product_data.image" alt="image" />
-        <p>{{ product_data.price }} $</p>
-        <p :title="product_data.description">
+        <p class="catalogItem__price">{{ product_data.price }} $</p>
+        <p class="catalogItem__title" :title="product_data.description">
           {{ shortDescription(product_data.description) }}
         </p>
       </div>
     </Popup>
     <img class="image" :src="product_data.image" alt="image" />
     <p class="catalogItem__title">{{ product_data.title }}</p>
-    <p class="catalogItem__price">Price$ {{ product_data.price }}</p>
+    <p class="catalogItem__price">{{ product_data.price }} $</p>
 
     <v-btn
       :class="!isInfoPopupVisible ? 'sub' : ''"
@@ -52,19 +52,16 @@ export default {
   computed: {},
   methods: {
     shortDescription(description) {
-      if (description.length < 180) {
+      if (description.length < 150) {
         return description;
       } else {
-        return description.slice(0, 180) + "...";
+        return description.slice(0, 150) + "...";
       }
     },
     addToCart() {
       this.$emit("addToCart", this.product_data);
     },
     showpopupinfo() {
-      let str =
-        "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem";
-      console.log(str.length);
       this.isInfoPopupVisible = true;
       this.$emit("fixedBody", this.isInfoPopupVisible);
     },
@@ -82,24 +79,42 @@ export default {
 
 <style>
 .catalogItem {
-  flex-basis: 25%;
-  box-shadow: 0 08px 0;
-
   margin-bottom: 8px;
   display: block;
 
-  border: 2px solid #202328;
+  border: 1px solid #777777;
+  background-color: #ffffff;
+
   color: #202328;
   text-decoration: none;
-  background-color: transparent;
   font-size: 15px;
-  padding: 8px;
+  padding: 8px !important;
+  margin: 8px !important;
+
   letter-spacing: 0.75px;
 
-  max-height: 330px;
-  min-height: 330px;
+  max-height: 380px;
+  min-height: 380px;
   max-width: 420px;
   min-width: 420px;
+
+  box-shadow: 2px 2px 2px 2px;
+}
+.catalogItem__price {
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+}
+.catalogItem__title {
+  text-align: left;
+
+  font-size: 16px;
+
+  color: #999999;
+  line-height: 14px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 2px;
 }
 .image {
   max-width: 150px;
@@ -114,11 +129,30 @@ export default {
 }
 .catalogItem:hover > .sub {
   visibility: visible;
-  transform: translateY(50px);
+  transform: translateY(25px);
   opacity: 1;
   z-index: 1;
 }
 @media screen and (min-width: 100px) and (max-width: 800px) {
+  .catalogItem {
+    box-shadow: 2px 2px 2px 2px;
+
+    margin-bottom: 8px;
+    display: block;
+
+    border: 1px solid #777777;
+    color: #202328;
+    text-decoration: none;
+    background-color: #ffffff;
+    font-size: 15px;
+    padding: 8px;
+    letter-spacing: 0.75px;
+
+    max-height: 380px;
+    min-height: 380px;
+    max-width: 350px;
+    min-width: 350px;
+  }
   .v-btn {
     visibility: visible;
     z-index: 1;
@@ -129,7 +163,7 @@ export default {
     z-index: 1;
   }
   .catalogItem__price {
-    margin: 0px 0px 50px 0px;
+    margin: 0px 0px 25px 0px;
   }
 }
 @media (hover: none) {

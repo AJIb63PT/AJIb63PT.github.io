@@ -14,7 +14,6 @@
         />{{ CART.length }}
       </div>
     </router-link>
-
     <div class="v-catalog__list">
       <catalogItem
         v-for="product in Filter"
@@ -80,14 +79,20 @@ export default {
           "--scroll-y"
         );
         const body = document.body;
+
         body.style.position = "fixed";
+        body.style.width = "100%";
+
         body.style.top = `-${scrollY}`;
-        console.log("if" + scrollY);
+        console.log(body.style);
       } else {
         const body = document.body;
         const scrollY = body.style.top;
         body.style.position = "";
         body.style.top = "";
+        body.style.width = "";
+        console.log(body.style);
+
         window.scrollTo(0, parseInt(scrollY || "0") * -1);
       }
 
@@ -150,11 +155,15 @@ export default {
 .v-catalog__list {
   display: flex;
 
+  background-color: #9b9b9b;
+  width: 100%;
+
+  margin-top: -72px;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  margin: 5px;
 }
+
 .from_calatog_to_cart {
   position: fixed;
   top: 10px;
@@ -167,9 +176,13 @@ export default {
 }
 @media screen and (min-width: 100px) and (max-width: 767px) {
   .v-catalog__list {
+    background-color: #9b9b9b;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
+
   .from_calatog_to_cart {
     position: fixed;
     top: 5px;
