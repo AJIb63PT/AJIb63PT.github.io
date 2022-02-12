@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <header class="header">
     <router-link :to="{ name: 'mainPage' }">
       <img class="mainA" src="../icons/mainA.svg" alt="A" />
     </router-link>
@@ -10,6 +10,7 @@
         type="text"
         v-model="searchValue"
         style="background-color:#fff"
+        placeholder="Поиск..."
       />
       <button
         class="search-btn"
@@ -26,7 +27,7 @@
         />
       </button>
     </div>
-  </div>
+  </header>
 </template>
 <script>
 import { mapActions } from "vuex";

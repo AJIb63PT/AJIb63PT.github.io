@@ -15,31 +15,31 @@
       </span>
       <div class="quantity__tools">
         <div class="quantity__tools_math">
-          <div
+          <span
             v-if="cart_item_data.quantity !== 1"
             class="quantity__btn_min"
             v-on:click="decrementItem"
           >
             -
-          </div>
-          <div
+          </span>
+          <span
             v-if="cart_item_data.quantity == 1"
             class="quantity__btn_del"
             v-on:click="DeleteFromCart"
           >
             Удалить из корзины
-          </div>
+          </span>
 
-          <div class="quantity__btn_plus" v-on:click="incrementItem">+</div>
+          <span class="quantity__btn_plus" v-on:click="incrementItem">+</span>
         </div>
 
-        <div
-          v-if="cart_item_data.quantity !== 1"
+        <span
+          v-show="cart_item_data.quantity !== 1"
           class="quantity__btn"
           v-on:click="DeleteFromCart"
         >
-          <img src="./icons/trash.svg" alt="" />
-        </div>
+          <img src="./icons/trash.svg" alt="Удалить из корзины" />
+        </span>
       </div>
     </div>
   </div>
@@ -114,8 +114,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 60px;
-  min-width: 60px;
+  max-width: 64px;
+  min-width: 64px;
   max-height: 60px;
   min-height: 60px;
   cursor: pointer;
@@ -125,8 +125,8 @@ export default {
 }
 
 .quantity__btn {
-  max-width: 122px;
-  min-width: 122px;
+  max-width: 130px;
+  min-width: 130px;
 }
 .cart_item__price {
   text-align: left;

@@ -161,10 +161,8 @@ export default {
 <style>
 .v-catalog__list {
   display: flex;
-
   background-color: #9b9b9b;
   width: 100%;
-
   margin-top: -110px;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -183,20 +181,12 @@ export default {
 }
 @media screen and (min-width: 100px) and (max-width: 767px) {
   .v-catalog__list {
-    background-color: #9b9b9b;
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
   }
 
   .from_calatog_to_cart {
-    position: fixed;
-    top: 5px;
-    right: 5px;
     padding: 5px;
-    margin: 5px;
-    font-size: 14px;
+    margin: 2px;
   }
 }
 </style>

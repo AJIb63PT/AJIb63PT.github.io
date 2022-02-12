@@ -15,11 +15,10 @@
       @increment="increment(index)"
       @decrement="decrement(index)"
     />
-
-    <div class="cart_total">
-      <p class="total_name">Итого:</p>
-      <p>{{ cartTotal.toFixed(2) }}$</p>
-    </div>
+    <footer class="cart_total">
+      <span class="total_name">Итого:</span>
+      <span>{{ cartTotal.toFixed(2) }}$</span>
+    </footer>
   </div>
 </template>
 <script>
@@ -75,10 +74,10 @@ export default {
   margin-top: -110px;
 }
 .emptyCart {
-  margin: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 15px;
 }
 .cart_total {
   position: fixed;
@@ -88,7 +87,7 @@ export default {
   padding: 8px 20px;
   display: flex;
   justify-content: center;
-  background: rgba(114, 199, 102, 0.933);
+  background: rgb(114, 199, 102);
   color: black;
   font-size: 20px;
   opacity: 0.7;
@@ -96,7 +95,6 @@ export default {
 
 @media screen and (min-width: 100px) and (max-width: 767px) {
   .cart {
-    display: flex;
     flex-direction: column;
   }
 }

@@ -70,13 +70,14 @@ export default {
 .v-select {
   width: 300px;
   position: fixed !important;
-
   top: 10px;
   left: 10px;
   cursor: pointer;
 }
 .title {
   padding: 8px;
+  text-align: left;
+  border: 1px solid #eee;
 }
 .v-select p {
   margin: 0;
@@ -85,12 +86,15 @@ export default {
 .options {
   border: solid 1px #aeaeae;
   background: #ffffff;
+  color: #000;
   position: absolute;
+  text-align: left;
+
   top: 10px;
   left: 0;
   width: 100%;
   padding: 2px;
-  font-size: 40px;
+  font-size: 30px;
 }
 .options__title {
   border-bottom: solid 1px #aeaeae;
@@ -118,11 +122,8 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    text-align: left;
-    background: #ffffff;
     position: absolute;
     top: 0px;
-    left: 0;
     font-size: 25px;
   }
   .title {

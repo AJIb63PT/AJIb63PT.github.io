@@ -96,25 +96,19 @@ export default {
 
 <style>
 .catalogItem {
-  margin-bottom: 8px;
   display: block;
-
   border: 1px solid #777777;
   background-color: #ffffff;
-
   color: #202328;
   text-decoration: none;
   font-size: 15px;
-  padding: 8px !important;
-  margin: 8px !important;
-
+  padding: 8px;
+  margin: 8px;
   letter-spacing: 0.75px;
-
   max-height: 380px;
   min-height: 380px;
   max-width: 420px;
   min-width: 420px;
-
   box-shadow: 2px 2px 2px 2px;
 }
 .catalogItem__price {
@@ -124,9 +118,7 @@ export default {
 }
 .catalogItem__title {
   text-align: left;
-
   font-size: 16px;
-
   color: #999999;
   line-height: 14px;
   margin-top: 25px;
@@ -142,19 +134,7 @@ export default {
 
 @media screen and (min-width: 100px) and (max-width: 800px) {
   .catalogItem {
-    box-shadow: 2px 2px 2px 2px;
-
-    margin-bottom: 8px;
-    display: block;
-
     border: 1px solid #777777;
-    color: #202328;
-    text-decoration: none;
-    background-color: #ffffff;
-    font-size: 15px;
-    padding: 8px;
-    letter-spacing: 0.75px;
-
     max-height: 380px;
     min-height: 380px;
     max-width: 350px;
@@ -169,7 +149,6 @@ export default {
 .catalog_item__bottons {
   padding: 2px;
   margin: 25px 0px 0px 0px;
-
   display: flex;
   width: 100%;
   justify-content: space-around;
@@ -177,12 +156,16 @@ export default {
 }
 .flip {
 }
-.flip__body {
+.flip__body,
+.flip__bodyflip {
   position: relative;
   width: 100px;
   height: 40px;
   transition: all 0.8s ease 0s;
   transform-style: preserve-3d;
+}
+.flip__bodyflip {
+  transform: rotateY(-180deg);
 }
 .flip__front,
 .flip__back {
@@ -209,20 +192,10 @@ export default {
   background-color: hsla(236, 46%, 58%, 0.767);
 }
 
-.flip__bodyflip {
-  position: relative;
-  width: 100px;
-  height: 40px;
-  transition: all 0.8s ease 0s;
-  transform-style: preserve-3d;
-  transform: rotateY(-180deg);
-}
-
-.content__transform-origin {
+.content__transform-origin,
+.content__transform-origin_click {
   cursor: pointer;
-
   position: relative;
-
   color: black;
   display: flex;
   align-items: center;
@@ -235,16 +208,6 @@ export default {
   transform: rotate(0deg);
 }
 .content__transform-origin_click {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-
-  background-color: hsla(100, 40%, 60%, 0.692);
-  width: 100px;
-  height: 40px;
-  transform-origin: 0 0;
   transform: rotate(-15deg);
 }
 </style>
