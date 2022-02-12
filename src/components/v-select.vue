@@ -12,6 +12,7 @@
 
     <div class="options" v-if="areOptionsVisible">
       <p
+        class="options__title"
         v-for="option in options"
         :key="option.value"
         @click="selectOption(option)"
@@ -88,8 +89,14 @@ export default {
   top: 10px;
   left: 0;
   width: 100%;
-  padding: 8px;
+  padding: 2px;
   font-size: 40px;
+}
+.options__title {
+  border-bottom: solid 1px #aeaeae;
+}
+.options__title:last-child {
+  border-bottom: solid 1px #ffffff;
 }
 
 .options p:hover {
@@ -102,22 +109,20 @@ export default {
   .v-select {
     position: absolute;
     top: 5px;
-    left: 10px;
-    padding: 30px;
-    width: 60%;
+    left: 5px;
+    padding: 5px;
+    width: 37%;
     cursor: pointer;
   }
   .options {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    text-align: left;
     background: #ffffff;
     position: absolute;
-    width: 60%;
-    top: 10px;
+    top: 0px;
     left: 0;
-    width: 100%;
-    padding: 8px;
     font-size: 25px;
   }
   .title {

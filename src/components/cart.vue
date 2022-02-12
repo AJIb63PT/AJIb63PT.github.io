@@ -6,7 +6,7 @@
       </div>
     </router-link>
 
-    <p v-if="!cart_data.length">Купи что-нибудь</p>
+    <p v-if="!cart_data.length" class="emptyCart">Купи что-нибудь</p>
     <CartItem
       v-for="(item, index) in cart_data"
       :key="item.id"
@@ -17,8 +17,8 @@
     />
 
     <div class="cart_total">
-      <p class="total_name">total:$</p>
-      <p>{{ cartTotal.toFixed(2) }}</p>
+      <p class="total_name">Итого:</p>
+      <p>{{ cartTotal.toFixed(2) }}$</p>
     </div>
   </div>
 </template>
@@ -72,6 +72,13 @@ export default {
 .cart {
   display: flex;
   flex-wrap: wrap;
+  margin-top: -110px;
+}
+.emptyCart {
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .cart_total {
   position: fixed;
@@ -86,9 +93,7 @@ export default {
   font-size: 20px;
   opacity: 0.7;
 }
-.total_name {
-  margin-right: 20px;
-}
+
 @media screen and (min-width: 100px) and (max-width: 767px) {
   .cart {
     display: flex;

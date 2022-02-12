@@ -80,7 +80,6 @@ export default {
   justify-content: center;
   align-items: center;
   background: cadetblue;
-  padding: 16px;
   position: fixed;
   width: 100%;
   top: 0;
@@ -88,7 +87,9 @@ export default {
   z-index: 2;
 }
 .search-field {
-  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .materials-icons {
   width: 25px;

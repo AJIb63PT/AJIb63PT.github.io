@@ -77,17 +77,20 @@ export default {
 </script>
 <style>
 .CartItem {
-  display: flex;
+  display: block;
+  border: 1px solid #777777;
+
+  background-color: #fff;
+
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 0 8px 0 #e0e0e0;
   padding: 8px;
-  margin-bottom: 12px;
-  min-width: 100%;
+  margin: 8px !important;
+  box-shadow: 2px 2px 2px 2px;
 }
 .cart_image {
-  max-width: 150px;
-  min-width: 150px;
+  max-width: 120px;
+  min-width: 120px;
 
   max-height: 250px;
   min-height: 250px;
@@ -107,22 +110,19 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 80px;
-  min-width: 80px;
+  max-width: 60px;
+  min-width: 60px;
   max-height: 60px;
   min-height: 60px;
   cursor: pointer;
   color: #000;
   background-color: rgba(114, 199, 102, 0.733);
   border: 1px solid #333;
-  padding: 10px;
 }
 
 .quantity__btn {
-  max-width: 162px;
-  min-width: 162px;
-  max-height: 60px;
-  min-height: 60px;
+  max-width: 122px;
+  min-width: 122px;
 }
 .cart_item__price {
   text-align: left;
@@ -156,6 +156,7 @@ export default {
     display: flex;
     flex-direction: initial;
     font-size: 14px;
+    max-width: 100%;
   }
   .cart_item_info {
     max-width: 50%;

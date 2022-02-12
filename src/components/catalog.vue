@@ -165,7 +165,7 @@ export default {
   background-color: #9b9b9b;
   width: 100%;
 
-  margin-top: -72px;
+  margin-top: -110px;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
@@ -173,9 +173,9 @@ export default {
 
 .from_calatog_to_cart {
   position: fixed;
-  top: 10px;
-  right: 10px;
-  padding: 20px;
+  top: 5px;
+  right: 5px;
+  padding: 10px;
   z-index: 3;
 }
 .v-select {
@@ -194,11 +194,9 @@ export default {
     position: fixed;
     top: 5px;
     right: 5px;
-    padding: 10px;
+    padding: 5px;
     margin: 5px;
     font-size: 14px;
-
-    width: 50px;
   }
 }
 </style>
