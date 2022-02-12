@@ -236,7 +236,9 @@ export default {
 }
 .content__transform-origin_click {
   cursor: pointer;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
 
   background-color: hsla(100, 40%, 60%, 0.692);
