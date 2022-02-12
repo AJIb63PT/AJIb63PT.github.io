@@ -6,7 +6,7 @@
         <p class="cart_item__title">{{ cart_item_data.title }}</p>
         <p class="cart_item__description">{{ cart_item_data.description }}</p>
 
-        <p class="cart_item__price">Price$ {{ cart_item_data.price }}</p>
+        <p class="cart_item__price">{{ cart_item_data.price }} $</p>
       </div>
     </div>
     <div class="cart_item_quantity">
@@ -77,7 +77,8 @@ export default {
 </script>
 <style>
 .CartItem {
-  display: block;
+  display: flex;
+  width: 99%;
   border: 1px solid #777777;
 
   background-color: #fff;
@@ -98,6 +99,9 @@ export default {
 .cart_item_info {
   display: flex;
   flex-direction: row;
+}
+.cart_item_info_text {
+  margin: 5px;
 }
 .quantity__tools_math {
   display: flex;
@@ -156,10 +160,10 @@ export default {
     display: flex;
     flex-direction: initial;
     font-size: 14px;
-    max-width: 100%;
+    max-width: 95%;
   }
   .cart_item_info {
-    max-width: 50%;
+    max-width: 60%;
   }
   .cart_item__description {
     display: none;
