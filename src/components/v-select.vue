@@ -1,6 +1,10 @@
 <template>
   <div class="v-select">
-    <p class="title" @click="areOptionsVisible = !areOptionsVisible">
+    <p
+      class="title"
+      @click="areOptionsVisible = !areOptionsVisible"
+      ref="toggle"
+    >
       {{ selectedName }}
     </p>
     <img
@@ -10,7 +14,7 @@
       @click="areOptionsVisible = !areOptionsVisible"
     />
 
-    <div class="options" v-if="areOptionsVisible">
+    <div class="options" v-if="areOptionsVisible" ref="optionsmenu">
       <p
         class="options__title"
         v-for="option in options"
@@ -53,15 +57,22 @@ export default {
 
       this.selectedName = option.name;
     },
-    hideSelect() {
-      this.areOptionsVisible = false;
+    hideSelect(e) {
+      if (
+        this.$refs.toggle.contains(e.target) ||
+        this.$refs.optionsmenu.contains(e.target)
+      ) {
+        return;
+      } else {
+        this.areOptionsVisible = false;
+      }
     },
-  },
-  mounted() {
-    document.addEventListener("click", this.hideSelect.bind(this), true);
-  },
-  beforeDestroy() {
-    document.removeEventListener("click", this.hideSelect);
+    mounted() {
+      document.addEventListener("click", this.hideSelect(e).bind(this), true);
+    },
+    beforeDestroy() {
+      document.removeEventListener("click", this.hideSelect(e));
+    },
   },
 };
 </script>
